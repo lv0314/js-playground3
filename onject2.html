@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체2</h1>
+    <script>
+        //객체의 생성자 살펴보기
+        //생성자를 사용한 객체 생성
+        var Human = function (name, hp, pow){
+            this.name = name;
+            this.hp = hp;
+            this.pow = pow;
+            this.attack = function(target){
+                console.log(this.name+"이 "+target.name+"을 공격했다.");
+                target.hp -= this.pow;
+            }
+            this.show = function(){
+                console.log("[%s] %d", this.name, this.hp);
+            }
+            this.eat = function(food){
+                this.hp += food.energy;
+                console.log(this.name+"이 "+food.name+"을 먹었습니다")
+                console.log(this.name+"의 hp가 "+food.energy + "만큼 회복되었습니다.")
+                // console.log(this.name+"이 "+food+"를 먹었습니다.");
+
+            }
+        }
+        //Humna 클래스의 인스턴스 p1, p2, p3
+        //객체의 변수는 참조 변수
+        var p1 = new Human("hwan", 100, 10);
+        var p2 = new Human("ming", 200, 1);
+        var p3 = new Human("noum", 50, 30);
+
+        //p1.attack(p2);
+        //p2.attack(p3);
+        //p1.show();
+
+        var Food = function(name, energy){
+            this.name = name;
+            this.energy = energy;
+        }
+
+        var doughnut = new Food("doughnut", 10);
+        p1.eat(doughnut);
+
+    </script>
+</body>
+</html>

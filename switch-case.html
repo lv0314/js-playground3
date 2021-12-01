@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>switch-case문법</h1>
+    <script>
+        var value;
+        switch(value) {
+            case 값1:
+            //value = 값1일 경우 실행할 코드
+            break;
+            case 값2:
+            //value = 값2일 경우 실행할 코드
+            break;
+            //...
+            default:
+            //위쪽에 해당되지 않는 경우 실행할 코드
+        }
+
+        var score = prompt("점수를 입력해 주세요");
+        switch (score){
+            case 10:
+            console.log("A");
+            break;
+
+            case 9:
+            console.log("B")
+            break;
+
+            default:
+            console.log("C");
+        }
+    </script>
+</body>
+</html>

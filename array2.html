@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배열과 문자열2</h1>
+    <script>
+        var a = [1, 2, 3, 4, 5];
+        var s = "hello";
+
+        //concat() 기존 배열은 변하지 않고 더해진 배열 생성
+        a.concat(6);
+        var a2 = a.concat([6, 7, 8]);
+        s.concat(" world");
+        s2 = s + "world" //문자열의 concat은 더하기와 같음
+
+        //join() 배열을 문자열로
+        a.join(); //"1, 2, 3, 4, 5"
+        var s3 = a.join("") //"12345" 매개변수를 구분자로
+
+        //indexOF(n) 첫번째 n의 인덱스값 출력
+        a.indexOf(1); // 0
+        a.lastIndexOf(2); //뒤에서부터 찾음
+        a.indexOf(100); // -1 원소가 없을 경우
+
+        //slice(시작, 끝) 기존 배열을 잘라 새로운 배열을 만듬
+        //기존 배열은 변하지 않기 때문에 문자열도 사용 가능
+        a.slice(0, 3) //[1, 2, 3]
+        var a3 = a.slice(2, 4) //[3, 4]
+
+        //splice(인덱스, 개수) 기존 배열에서 잘라짐 문자열 사용X
+        var a4 = a.splice(2, 3) // [3, 4, 5]
+
+        //split() 문자열을 배열로
+        //매개변수가 된 문자열은 사라짐
+        var s3 = "hello, world, a-b-c";
+        s3.split(""); // ["h", "e", ..., "-", "c"] 요소별로
+        s3.split(" "); // ["hello,", "world,", "a-b-c"] 공백 기준
+        s3.split(","); // ["hello", " world", " a-b-c"] , 기준
+        s3.split("-"); // ["hello", "world", "a", "b", "c"]
+
+    </script>
+</body>
+</html>

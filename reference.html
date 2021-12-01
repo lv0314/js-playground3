@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>참조 변수와 Call by Reference</h1>
+    <script>
+        //기본 타입을 변수에 할당하면 일반 변수가 되고
+        var a = 10;
+        var b = "hello";
+        var c = 5 > 3;
+
+        //객체를 변수에 할당하면 참조 변수가 됨
+        var d = [1, 2, 3, 4, 5];
+        var e = {};
+        e.name = "hwan";
+
+        //일반 변수는 "값만" 저장하고 다른 변수에 언제나 독립적으로 존재
+        var a2 = a;
+        a2;
+        a2 === a; //true
+        a = 15;
+        a2 === a; //false
+
+        //참조 변수 서로 같은 값을 가리킴
+        var arr1 = [1, 2, 3, 4, 5];
+        var arr2 = arr1; //[1, 2, 3, 4, 5]
+        arr1.push(6);
+        arr2 //[1, 2, 3, 4, 5, 6]
+        arr1 === arr2 // true
+
+        var p1 = {};
+        var p2 = p1;
+        p1 === p2 //true
+        p1.name = "hwan";
+        p1 === p2 //true
+        
+        //함수 호출 시의 변수
+        //Call by Value 일반 변수
+        var foo = function(v){
+            v = v * 2;
+            console.log("foo: " + v);
+        };
+
+        var n = 10;
+        foo(n); //20 단순히 값을 전달 call by value
+        n; //여전히 10
+
+        //Call by Reference 참조에 의한 전달
+        p1.w = 80;
+        var diet = function(people){
+            people.w -= 1;
+            console.log("%s %d", people.name, people.w)
+        };
+
+        diet(p1); //hwan 79
+        diet(p1); //hwan 78
+        p1; //{name: "hwan", w: 78} 
+        //함수 안에서 바뀐 값이 바깥에서도 바뀌었다
+
+        //값 전달 변수는 함수 내부에서 값을 바꿔도 외부에서는 그대로
+        //참조 전달 변수는 함수 내부에서 값을 바꾸면 외부의 객체도 값이 바뀜
+        
+
+    </script>
+</body>
+</html>
